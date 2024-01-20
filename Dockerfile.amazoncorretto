@@ -1,8 +1,8 @@
-FROM openjdk:7-jre-alpine
+FROM amazoncorretto
 
 MAINTAINER wahome <kevowahome@gmail.com>
 
-RUN apk add --update bash && rm -rf /var/cache/apk/*
+# RUN yum update -y
 
 COPY SMPPSim /app
 
@@ -41,8 +41,6 @@ EXPOSE 2775
 WORKDIR /app
 
 COPY docker-entrypoint.sh /
-
-VOLUME ["/app/conf", "/app/mo"]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
